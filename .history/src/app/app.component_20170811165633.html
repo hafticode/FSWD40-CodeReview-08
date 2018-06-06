@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CodeFactory</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Business Contacs</h2>
+
+    <div *ngIf="appState == 'extend'">
+      <div class="row">
+        <div class="col-lg-6">
+          <button class="btn btn-info" (click)="changeState('default')">close</button>
+        </div>
+        <div class="col-lg-6">
+          <div *ngFor="let business of businesses">
+            <div *ngIf="business.$key == activeKey">
+              {{business.phone}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="appState == 'default'" class="row">
+      <div class="col-lg-12">
+        <button class="btn btn-danger" (click)="changeState('add')">Add new business</button>
+      </div>
+    </div>
+
+    <div *ngIf="appState == 'add'">
+      <div class="panel panel-danger">
+        <div class="panel-heading">Add new Business</div>
+
+        <div class="panel-body">
+          <form>
+            <div class="row">
+
+              <div class="col-lg-6">
+                <label>Company
+                <input type="text" placeholder="Company Name" #company>
+                </label>
+              </div>
+
+              <div class="col-lg-6">
+                <label>Years in Business
+                <input type="text" placeholder="Years in Business" #years_in_business>
+                </label>
+              </div>
+
+              <div class="col-lg-6">
+                <label>Category
+                <select #category>
+                  <option value="0">Select</option>
+                  <option *ngFor="let category of categories" value="{{category.name}}">
+                    {{category.name}}
+                  </option>
+                </select>
+                </label>
+              </div>
+
+              
+
+
+              
+
+              
+
+          </form>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Category</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let business of businesses">
+          <td>{{business.company}}</td>
+          <td>{{business.category}}</td>
+          <td>{{business.phone}}</td>
+          <button (click)="changeState('extend', 'business.$key')" class="btn btn-info">More</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>

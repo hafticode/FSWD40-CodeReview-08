@@ -1,0 +1,28 @@
+header {
+	width: 100%;
+	background: #7B238A;
+	text-align: center;
+}
+
+#logo-header {
+	display:inline-block;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+#intro {
+	width: 100%;	
+	height: 600px;
+	background: linear-gradient(rgba(123, 35, 138,.5), rgba(0,0,0,.5)),
+    url('/assets/img/computer.jpg');
+    background-size: cover;
+}
+
+#welcome {
+	color: white;
+	font-size: 5em;
+	font-family: Arial;
+	margin: 0;
+text-align: center;
+line-height: 600px;
+}

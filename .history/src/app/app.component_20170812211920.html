@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CodeFactory</title>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h2>Business Contacs</h2>
+		<div class="row">
+			<div class="col-lg-6">
+				<label>Filter Category <select>
+					<option value="0">
+						Select
+					</option>
+					<option value="{{category.name}}">
+						{{category.name}}
+					</option>
+				</select></label>
+			</div>
+		</div>
+		<div>
+			<div class="row">
+				<div class="col-lg-6">
+					<button class="btn btn-info">close</button>
+				</div>
+				<div class="col-lg-6">
+					<div>
+						<div>
+							{{business.phone}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<button class="btn btn-danger">Add new business</button>
+			</div>
+		</div>
+		<div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Add new Business
+				</div>
+				<div class="panel-body">
+					<form>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label for="company">Company:</label> <input class="form-control" type="text">
+								</div><label for="sel1">Select list (select one):</label> <select class="form-control">
+									<option class="form-control" value="0">
+										Select
+									</option>
+									<option class="form-control" value="{{category.name}}">
+										{{category.name}}
+									</option>
+								</select>
+								<div class="form-group">
+									<label for="phone">Phone:</label> <input class="form-control" type="text">
+								</div><button class="btn btn-danger" type="submit">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div><button class="btn btn-info">More</button>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Company</th>
+					<th>Category</th>
+					<th>Phone</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{business.company}}</td>
+					<td>{{business.category}}</td>
+					<td>{{business.phone}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
