@@ -1,7 +1,47 @@
-<header>
-        <img id="logo-header" src="/assets/img/logo-coders-dating.png" alt="Logo Coders Dating">
-    </header>
-    <!-- /header -->
-    <div id="intro">
-        <p id="welcome">Welcome to our website</p>
+<div class="container">
+	<div *ngIf="appState == 'default'" class="row">
+    <div class="col-lg-12">
+      <label>Filter Users
+        <select (change)="filterCategory(filteredCategory.value)" #filteredCategory>
+          <option value="0">Select</option>
+          <option *ngFor="let gender of gender" value="{{gender.name}}">
+            {{gender.name}}
+          </option>
+        </select>
+      </label>
     </div>
+  </div>
+	<div>
+		<div class="row" id="wrapper">
+			<div *ngFor="let data of data" class="col-lg-3 col-md-6 col-sm-12 col-xs-12 profile">
+				<div class="row profilecontainer">
+					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 profilepic">
+						<img src="/assets/{{data.image}}" alt="">
+					</div>
+					<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+						<div class="profiledata">
+							<p>Name: {{data.name}}</p>
+							<p>Surname: {{data.surname}}</p>
+							<p>Age: {{data.age}}</p>
+							<p><span *ngIf="data.inrelationship == true"><strong>In a relationship</strong></span>
+				            <span *ngIf="data.inrelationship == false"><strong>Single</strong></span></p>
+				        </div>
+					</div>
+					</div>
+					<div class="row gridbutton">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs 6">
+							<button (click)="addLike(data.$key, data.likes)">Like</button>
+						</div> 
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs 2">
+							<p>{{data.likes}}</p>	
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs 2 heart">
+							<img src="/assets/img/like.png" alt="">
+						</div>
+					</div>
+					
+				
+			</div>
+		</div>	
+	</div>
+</div>	

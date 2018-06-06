@@ -6,6 +6,9 @@ import { AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ProfilepageComponent } from './profilepage/profilepage.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 export const firebaseConfig ={
   apiKey: "AIzaSyCqTBfVPB3YXOtmR0oWymqcWIz36cdXFrM",
@@ -19,7 +22,10 @@ export const firebaseConfig ={
 @NgModule({
  declarations: [
    AppComponent,
-   HomePageComponent
+   HomePageComponent,
+   ProfilepageComponent,
+   FooterComponent,
+   HeaderComponent
  ],
  imports: [
    BrowserModule,
